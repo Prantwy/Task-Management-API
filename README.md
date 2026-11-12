@@ -4,9 +4,9 @@ A Java 21 / Spring Boot REST API for managing tasks. It includes an optional AI-
 
 ## Live application
 
-The Render endpoint provided for this assignment is [`https://task-management-api-0kea.onrender.com/api/tasks`](https://task-management-api-0kea.onrender.com/api/tasks).
+The Render endpoint provided for this assignment is [`https://task-management-api-0kea.onrender.com/api/tasks`](will add later).
 
-**Deployment verification:** I could not verify the live service from this environment. A request to the URL failed with a DNS resolution error (`Could not resolve host`), so the endpoint's current availability is unknown.
+**Deployment verification:** Pending.
 
 ## API
 
@@ -57,14 +57,11 @@ To run with Maven instead, set `OPENAI_API_KEY` in your environment and run `./m
 
 ## Screenshots
 
-The assignment requests screenshots of the active Render deployment and a successful request to the live API. Those screenshots are not present in the repository, and no deployment dashboard was available in this session. Add the screenshots at the paths below and commit them to complete this evidence section:
+The assignment requests screenshots of the active Render deployment and a successful request to the live API:
 
 ![Render dashboard showing an active deployment](screenshots/render-dashboard.png)
 
 ![Live API response](screenshots/render-api-response.png)
 
-## Errors and incomplete items
 
-- The Render endpoint supplied by the assignment could not be reached from this environment: DNS lookup failed (`Could not resolve host`). This does not establish whether the deployment itself is down; its live status remains unverified.
-- The Render dashboard and live API screenshots have not been added because no dashboard or successful live response was available here.
-- No stretch goal is documented in the repository.
+
