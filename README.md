@@ -46,8 +46,10 @@ Example request to create a task:
 ```bash
 curl -X POST http://localhost:8080/api/tasks \
   -H 'Content-Type: application/json' \
-  -d '{"title":"Test deployment","completed":false}'
+  -d '{"title":"Test deployment"}'
 ```
+![alt text](screenshots/curlxlocalhost.png)
+
 The summary endpoint uses the configured OpenRouter OpenAI key and requires an `OPENAI_API_KEY` environment variable.
 
 Keep the key in an environment variable in ~/.bashrc:
@@ -91,7 +93,6 @@ curl http://localhost:8080/api/tasks
 ![alt text](screenshots/httplocalhosttest.png)
 
 
-
 To run with Maven instead, set `OPENAI_API_KEY` in your environment and run `./mvnw spring-boot:run` (Windows: `mvnw.cmd spring-boot:run`). The Dockerfile builds the JAR in a Maven stage and runs it on the Java 21 JRE image, exposing port `8080`.
 
 
@@ -107,10 +108,56 @@ curl -X POST https://task-management-api-0kea.onrender.com/api/tasks \
   -H "Content-Type: application/json" \
   -d '{"title":"Test deployment","completed":true}'
 ```
+![alt text](screenshots/curlxapi.png)
 
 6. Verify the deployment with `curl https://task-management-api-0kea.onrender.com/api/tasks` 
+
+
+![alt text](screenshots/curlapitest.png)
 
 ![alt text](screenshots/httpapitest.png)
 
 
-  
+# Stretch Goal
+### Option 4: Publish versioned Docker images
+
+2 taskflow Docker images, `1.0.0` and `1.0.1`, were built and pushed to Docker Hub. Images use Semantic Versioning (SemVer). 
+
+### Semantic Versioning (SemVer) Format
+
+```
+MAJOR.MINOR.PATCH
+```
+
+- **MAJOR** – Incompatible API changes (breaking changes)
+- **MINOR** – Backwards-compatible feature additions
+- **PATCH** – Backwards-compatible bug fixes
+
+
+### Example:
+Starting version: `1.0.0`
+| Change | New Version | Reason |
+|--------|-------------|--------|
+| Fix bug in login | `1.0.1` | Patch - bug fix |
+| Add new "export" feature | `1.1.0` | Minor - new feature |
+| Change API response format | `2.0.0` | Major - breaking change |
+
+
+### Docker Image Tags
+
+The `latest` tag points to the newest release, currently `1.0.1`. 
+
+
+![alt text](screenshots/tags.png)
+
+
+
+![alt text](screenshots/latest.png)
+
+![alt text](screenshots/1.0.1.png)
+
+Same index digests mean that both version tags, `1.0.1` and `latest`, point to the same build of the image. 
+
+![alt text](screenshots/1.0.0.png)
+
+The `1.0.0` tag has a different digest as it represents the previous build of the image.
